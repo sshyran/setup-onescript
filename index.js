@@ -70,7 +70,7 @@ async function run() {
       core.exportVariable('PATH', '$OSCRIPTBIN:' + process.env.PATH);
     }
     
-    if (platform == 'linux') {
+//     if (platform == 'linux') {
       await exec.exec('curl -L https://github.com/oscript-library/opm/releases/download/v0.16.2/opm-0.16.2.ospx --output opm.ospx');
       if (osVersion == '1.2.0') {
         await exec.exec('mkdir tmp');
@@ -78,7 +78,7 @@ async function run() {
         await exec.exec('unzip -o ./tmp/content.zip -d /home/runner/.local/share/ovm/current/lib/opm');  
       } 
       await exec.exec('opm install -f opm.ospx');   
-    }
+//     }
   }
   catch (error) {
     core.setFailed(error.message);
